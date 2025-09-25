@@ -1,6 +1,6 @@
 * {
     padding: 0;
-    border: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -11,31 +11,28 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #d8dfe5;
+    background-color: #6a6a6a; /* Color de fondo del body */
 }
 
-/* Para navegadores basados en WebKit */
 ::-webkit-scrollbar {
-    width: 10px; /* Ancho de la barra de desplazamiento vertical */
+    width: 10px;
 }
 
-/* El "track" o fondo de la barra de desplazamiento */
 ::-webkit-scrollbar-track {
     background-color: transparent;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
-/* El "thumb" o la parte que se mueve */
 ::-webkit-scrollbar-thumb {
     background-color: transparent;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
-/* Estilo al pasar el cursor sobre el "thumb" */
 ::-webkit-scrollbar-thumb:hover {
     background-color: #1e6cd9;
 }
 
+/* Flexbox para el contenedor principal */
 .container-card {
     border-radius: 10px;
     display: flex;
@@ -46,80 +43,62 @@ body {
 }
 
 .aside-left {
-    background-color: #e5e0d8;
-    width: 10%;
+    background-color: #a4978e; /* Color de fondo del aside */
     flex-shrink: 0;
     height: 100%;
     padding: 10px;
-    /*border: 1px solid black;*/
     border-right: 1px solid black;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     display: flex;
-    justify-content: center;
-}
-
-.aside-left .text-left {
-    padding-top: 2rem;
-    font-size: 3rem;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    color: #000;
-    font-weight: 900;
-}
-
-
-.contenido {
-    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
-    display: flex;
     flex-direction: column;
-    padding: 0 2rem 2rem 0;
-    overflow-y: auto;
-}
-
-.presentacion {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Espacio entre el encabezado y el perfil */
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid black;
-}
-
-.header {
-    padding-bottom: 1.7rem;
-}
-
-.titulo {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    width: 100%;
-    padding-top: 0;
+    flex-basis: 25%;
 }
 
-.titulo h1 {
-    font-size: 5rem;
-    font-weight: 900;
-    margin: 0;
-    color: #000;
-    text-align: center;
-}
-
-.profile-and-description {
+/* El main ahora es un contenedor flex para alinear sus hijos */
+.contenido {
+    flex-grow: 1;
     display: flex;
-    align-items: flex-end; /* Alinea los elementos en la parte inferior */
+    flex-direction: column; /* Apila las secciones verticalmente */
+    padding: 2rem;
+    overflow-y: auto;
+    flex-basis: 75%;
+    gap: 20px;
+}
+
+.comision-estado {
+    background-color: #b7c7c3; /* Color de fondo de la sección COMISSION OPEN */
+}
+
+/* Contenedor que hace que las secciones queden una al lado de otra */
+.main-content-row {
+    display: flex;
+    gap: 20px;
+}
+
+.condiciones {
+    background-color: #43baab; /* Color de fondo de la sección Condiciones */
+    flex: 1; /* Ocupa el espacio disponible */
+}
+
+.gali-precio {
+    background-color: #a2379b; /* Color de fondo de la sección Galería/Precios */
+    flex: 1; /* Ocupa el espacio disponible */
+}
+
+.perfil-descripcion {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    position: relative;
+    align-items: center;
 }
 
 .perfil {
-    width: 11.5rem;
-    height: 12rem;
-    flex-shrink: 0; /* Evita que la imagen se encoja */
-    position: absolute;
-    left: 4rem;
-    bottom: 1rem;
+    width: 100%;
+    max-width: 10rem;
+    height: auto;
+    flex-shrink: 0;
 }
 
 .img-perfil {
@@ -129,18 +108,14 @@ body {
 }
 
 .descripcion {
-    flex-grow: 1; /* La descripción ocupa el espacio restante */
-    background: #1e6cd9;
-    color: #f4ecec;
-    border-top-right-radius: 8rem;
+    flex-grow: 1;
     padding: 1rem;
-    justify-items: end;
+    width: 100%;
 }
 
 .texto {
     width: 100%;
-    text-shadow: 2px 0px 2px black;
-    width: 36rem;
+    padding: 1rem;
 }
 
 .texto h3 {
@@ -148,61 +123,29 @@ body {
     font-weight: 900;
 }
 
-
-.condiciones {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    padding-left: 2rem;
+.redes {
     width: 100%;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid black;
-}
-
-/* Reglas para los 'terms' */
-.terms {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Valor para crecer uniformemente */
-    padding: 0.5rem;
-    background-color: #1e6cd9;
-    color: #f4ecec;
-    text-shadow: 2px 0px 2px black;
-    border: 1px solid black;
-}
-
-/* Reglas específicas para el 'terms' de "Términos y condiciones" */
-.condiciones a {
-    text-decoration: none;
-    flex-grow: 0.5; /* El enlace se hace más pequeño */
-    display: flex;
-}
-
-.terms-tos {
-    flex-grow: 1; 
     padding: 1rem;
-    background-color: #1e6cd9;
-    color: #f4ecec;
-    text-shadow: 2px 0px 2px black;
-    border: 1px solid black;
+    text-align: center;
 }
 
-.terms ul {
-    list-style: none; 
-    padding: 0;
-    margin: 0; 
-
-}
-
-.terms ul li {
-    padding: 0.5rem 0; 
-}
-
-.precios {
+.title-contact {
     display: flex;
+    align-items: center;
     justify-content: center;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid black;
+    gap: 5px;
 }
 
+.lupapng {
+    height: 1.2em;
+    width: auto;
+}
+
+.title-contact p {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.redes-links {
+    text-align: left;
+}
